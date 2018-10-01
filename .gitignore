@@ -29,5 +29,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# IDE
+./idea
+
+# Custom
+_site/
 
 # End of https://www.gitignore.io/api/osx

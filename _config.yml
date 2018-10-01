@@ -1,8 +1,8 @@
 # Site settings 配置站点
-title: 'your awesome title'
-description: 'your web description'
-keywords: 'your web keywords, another keywords'
-url: 'https://abc.github.io' # your host
+title: 'Gzp的博客'
+description: '一个兴趣使然的程序员'
+keywords: '技术, Python, Vue, 后端开发，前端开发，日常'
+url: 'https://elfgzp.github.io' # your host
 
 # nav 中文字符空格：&emsp;
 nav: # 最佳体验 六个标签 且最好每个标签不超过4中文字
@@ -14,31 +14,31 @@ nav: # 最佳体验 六个标签 且最好每个标签不超过4中文字
 
 # 博主
 author: true
-name: 'your awesome name'
-NickName: 'your awesome nickname'
-webtitle: 'your awesome webtitle'
-bio: 'your awesome bio'
+name: '官智鹏'
+NickName: 'Gzp'
+webtitle: ''
+bio: '一个兴趣使然的程序员'
 about: true
 aboutyou: 'your introduction'
-portraits: '/assets/profile.jpeg' # your portraits image file path
+portraits: '/assets/images/profile.jpeg' # your portraits image file path
 
 # SNS
 SNS: true
 SNS-icon: #['Facebook', 'weibo', 'qq', 'github', 'Dribbble', 'Twitter', 'instagram', 'weixin', 'Codepen']
-  mail: 'mailto:abc@gmail.com'
-  weixin: '' # 你的微信二维码存放的地址
-  qq: '' # 你的qq二维码存放的地址 or http://wpa.qq.com/msgrd?v=3&uin='你的QQ号'&site=qq&menu=yes
-  github: ''
-  Codepen: ''
-  weibo: ''
-  instagram: ''
-  Twitter: ''
-  Dribbble: ''
-  Facebook: ''
-  Google: ''
-  zhihu: ''
-  juejin: ''
-  twitch: ''
+  mail: 'mailto:741424975@qq.com'
+  weixin: '/assets/images/wechat.png' # 你的微信二维码存放的地址
+  qq: 'http://wpa.qq.com/msgrd?v=3&uin=741424975&site=qq&menu=yes' # 你的qq二维码存放的地址 or http://wpa.qq.com/msgrd?v=3&uin='你的QQ号'&site=qq&menu=yes
+  github: 'https://github.com/elfgzp'
+  # Codepen: ''
+  # weibo: ''
+  # instagram: ''
+  # Twitter: ''
+  # Dribbble: ''
+  # Facebook: ''
+  # Google: ''
+  # zhihu: ''
+  # juejin: ''
+  # twitch: ''
 
 # 分页
 paginate: 2
@@ -59,7 +59,6 @@ pygmentsTheme: 'default'
 
 # 友情链接
 friends:
-  jekyll: 'https://www.jekyll.com.cn/'
 
 # 评论 最佳体验 在disqus、livere和Gitment之间三选一
 # disqus 评论
