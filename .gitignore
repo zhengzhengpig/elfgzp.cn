@@ -30,7 +30,7 @@ Temporary Items
 .apdisk
 
 # IDE
-./idea
+.idea/
 
 # Custom
 _site/
