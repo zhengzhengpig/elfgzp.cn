@@ -292,3 +292,10 @@ docker-compose up -d
 
 
 希望看完本文章由收获的别忘了给我留言哦。
+
+## 参考文章
+> [centos安装docker,docker-compose](https://www.jianshu.com/p/dbc0fb6e9149)  
+> [基于Docker搭建Jekyll并实现自动部署](https://xxblog.cn/2018/01/Run-jekyll-based-docker-and-auto-deployment/)  
+> [Jekyll + Travis CI 自动化部署博客](https://mritd.me/2017/02/25/jekyll-blog-+-travis-ci-auto-deploy/)  
+> [Travis-ci远程部署到服务器](https://blog.csdn.net/sp1206/article/details/80430493)  
+> [使用travis自动部署hexo日志](https://blog.tomyail.com/writing-hexo-blog-with-travis-ci/)  
