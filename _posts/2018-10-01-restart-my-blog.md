@@ -8,8 +8,6 @@ cover: '/assets/images/2018-10-01-restart-my-blog/IMG_20181002_133855-squashed.j
 subtitle: '重新开始写博客的原因、毕业一年半的感悟'
 ---
 
-![img1](/assets/images/2018-10-01-restart-my-blog/IMG_20181002_133855-squashed.jpg)
-
 ## 旧的博客
 
 在大三的时候，我开始接触`Linux`，折腾了一个多月的时候我了解到了[Typecho](http://typecho.org/)，一个用`php`开发的博客系统。
