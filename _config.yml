@@ -3,6 +3,7 @@ title: 'Gzp的博客'
 description: '一个兴趣使然的程序员'
 keywords: '技术, Python, Vue, 后端开发，前端开发，日常'
 url: 'https://elfgzp.github.io' # your host
+ICP: '粤ICP备16038504号-1' # 备案号
 
 # nav 中文字符空格：&emsp;
 nav: # 最佳体验 六个标签 且最好每个标签不超过4中文字
