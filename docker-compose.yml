@@ -5,4 +5,5 @@ services:
       context: .
       dockerfile: Dockerfile
     image: elfgzp.github.io:latest
-    network_mode: host
+    ports:
+    - "4000:4000"

@@ -6,5 +6,4 @@ RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.com
 RUN cd blog \
          && bundler install
 WORKDIR /blog
-RUN JEKYLL_ENV=production
-CMD bundle exec jekyll serve --host 0.0.0.0
+CMD export JEKYLL_ENV=production && bundle exec jekyll serve --host 0.0.0.0
