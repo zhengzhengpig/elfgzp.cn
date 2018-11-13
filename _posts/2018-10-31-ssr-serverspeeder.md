@@ -121,7 +121,7 @@ firewall-cmd --reload
 
 Windows: [C# SSR客户端](https://oss2.mzyyun.com/ssr.zip)  
 Mac OS: [SSR客户端](https://oss2.mzyyun.com/SS-X-R.zip)  
-IOS: [Shadowrocket](https://itunes.apple.com/us/app/shadowrocket/id932747118?mt=8)  
+IOS: [Detour - 一款低调到家的双S客户端](https://itunes.apple.com/cn/app/detour-%E4%B8%80%E6%AC%BE%E4%BD%8E%E8%B0%83%E5%88%B0%E5%AE%B6%E7%9A%84%E5%8F%8Cs%E5%AE%A2%E6%88%B7%E7%AB%AF/id1260141606?mt=8)  
 安卓: [SSR客户端](https://github.com/shadowsocksr-backup/shadowsocksr-android/releases/download/3.4.0.8/shadowsocksr-release.apk)  
 
 安装好客户端后，使用客户端的扫描二维码功能来扫描SSR服务端的二维码来添加服务器。
