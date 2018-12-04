@@ -72,14 +72,36 @@ window.onbeforeunload = function () {
 </script>
 <script src="/assets/js/main.js"></script>
 <script>
-$(function () {
-  var navSelector = '#toc'
-  var $myNav = $(navSelector)
-  Toc.init($myNav)
-  $('body').scrollspy({
-    target: navSelector
+var os = function() {
+  var ua = navigator.userAgent,
+    isWindowsPhone = /(?:Windows Phone)/.test(ua),
+    isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone,
+    isAndroid = /(?:Android)/.test(ua),
+    isFireFox = /(?:Firefox)/.test(ua),
+    isChrome = /(?:Chrome|CriOS)/.test(ua),
+    isTablet = /(?:iPad|PlayBook)/.test(ua) || (isAndroid && !/(?:Mobile)/.test(ua)) || (isFireFox && /(?:Tablet)/.test(ua)),
+    isPhone = /(?:iPhone)/.test(ua) && !isTablet,
+    isPc = !isPhone && !isAndroid && !isSymbian;
+  return {
+    isTablet: isTablet,
+    isPhone: isPhone,
+    isAndroid : isAndroid,
+    isPc : isPc
+  };
+}();
+var navSelector = '#toc'
+var $myNav = $(navSelector)
+
+if (os.isAndroid || os.isPhone) {
+  $myNav.parent().hide()
+} else {
+  $(function () {
+    Toc.init($myNav)
+    $('body').scrollspy({
+      target: navSelector
+    })
   })
-})
+}
 </script>
 <style type="text/css">
     nav[data-toggle=toc] .nav-link.active, nav[data-toggle=toc] .nav-link.active:focus, nav[data-toggle=toc] .nav-link.active:hover {
