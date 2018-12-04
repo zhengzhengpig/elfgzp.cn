@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 引入head标签 -->
-{% include head.html %}
-{% include androidColor.html %}
+    <!-- 引入head标签 -->
+    {% include head.html %}
+    {% include androidColor.html %}
 </head>
 <body>
 
@@ -16,24 +16,29 @@
 {% include boot.html %}
 <!-- 引入博文顶部样式 -->
 {% include post-title.html %}
+<div class="toc">
+    <span>Toc</span>
+    <nav id="toc"></nav>
+</div>
 <div class="markdown-body fadeInUp animated">
 
-  {% if page.subtitle %}
+    {% if page.subtitle %}
     {% if page.color.size==0 or page.color==nil %}
-      <div class="postpage-subtitle" style="border-left: 8px solid #9A85FF; border-right: 8px solid #9A85FF;">
+    <div class="postpage-subtitle" style="border-left: 8px solid #9A85FF; border-right: 8px solid #9A85FF;">
         {{ page.subtitle }}
-      </div>
+    </div>
     {% else %}
-      <div class="postpage-subtitle" style="border-left: 8px solid {{ page.color }}; border-right: 8px solid {{ page.color }}">
+    <div class="postpage-subtitle"
+         style="border-left: 8px solid {{ page.color }}; border-right: 8px solid {{ page.color }}">
         {{ page.subtitle }}
-      </div>
+    </div>
     {% endif %}
-  {% endif %}
-  <img src="{{ page.cover }}">
-  <!-- 文章内容 -->
-  {{ page.content }}
-  <!-- 引入share模块 -->
-  {% include share.html %}
+    {% endif %}
+    <img src="{{ page.cover }}">
+    <!-- 文章内容 -->
+    {{ page.content }}
+    <!-- 引入share模块 -->
+    {% include share.html %}
 </div>
 
 <!-- 底部锚点 -->
@@ -48,23 +53,42 @@
 <!-- 引用wow.js的动画效果 -->
 <script src="/assets/js/wow.js"></script>
 <script>
-    var wow = new WOW({
-        boxClass: 'wow',
-        animateClass: 'animated',
-        // offset: 600,
-        mobile: true,
-        live: true
-    });
-    wow.init();
+var wow = new WOW({
+  boxClass: 'wow',
+  animateClass: 'animated',
+  // offset: 600,
+  mobile: true,
+  live: true
+})
+wow.init()
 </script>
 <!-- 页面刷新回到顶部 -->
 <script>
-    window.onbeforeunload = function(){
-        //刷新后页面自动回到顶部
-        document.documentElement.scrollTop = 0;  //ie下
-        document.body.scrollTop = 0;  //非ie
-    }
+window.onbeforeunload = function () {
+  //刷新后页面自动回到顶部
+  document.documentElement.scrollTop = 0  //ie下
+  document.body.scrollTop = 0  //非ie
+}
 </script>
 <script src="/assets/js/main.js"></script>
+<script>
+$(function () {
+  var navSelector = '#toc'
+  var $myNav = $(navSelector)
+  Toc.init($myNav)
+  $('body').scrollspy({
+    target: navSelector
+  })
+})
+</script>
+<style type="text/css">
+    nav[data-toggle=toc] .nav-link.active, nav[data-toggle=toc] .nav-link.active:focus, nav[data-toggle=toc] .nav-link.active:hover {
+        padding-left: 18px;
+        font-weight: 700;
+        color: {{ page.color }};
+        background-color: transparent;
+        border-left: 2px solid {{ page.color }};
+    }
+</style>
 </body>
 </html>
