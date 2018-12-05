@@ -1,5 +1,5 @@
 var leftTab = document.getElementById('left-tab'),
-    rightTab = document.getElementById('right-tab');
+  rightTab = document.getElementById('right-tab')
 
 // 垃圾方法，该方法必须等页面加载玩才有效
 // window.onload = function(){
@@ -22,25 +22,33 @@ var leftTab = document.getElementById('left-tab'),
 //
 // }
 
-function showLeft() {
-  leftTab.style.display="block";
-  leftTab.setAttribute("class","rotateInUpLeft self-animated");
+function showLeft () {
+  if (leftTab) {
+    leftTab.style.display = 'block'
+    leftTab.setAttribute('class', 'rotateInUpLeft self-animated')
+  }
 }
 
-function goneLeft() {
-  leftTab.setAttribute("class","rotateOutDownLeft self-animated");
+function goneLeft () {
+  if (leftTab) {
+    leftTab.setAttribute('class', 'rotateOutDownLeft self-animated')
+  }
 }
 
-function showRight() {
-  rightTab.style.display="block";
-  rightTab.setAttribute("class","rotateInUpRight self-animated");
+function showRight () {
+  if (rightTab) {
+    rightTab.style.display = 'block'
+    rightTab.setAttribute('class', 'rotateInUpRight self-animated')
+  }
 }
 
-function goneRight() {
-  rightTab.setAttribute("class","rotateOutDownRight self-animated");
+function goneRight () {
+  if (rightTab) {
+    rightTab.setAttribute('class', 'rotateOutDownRight self-animated')
+  }
 }
 
-var os = function() {
+var os = function () {
   var ua = navigator.userAgent,
     isWindowsPhone = /(?:Windows Phone)/.test(ua),
     isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone,
@@ -49,12 +57,12 @@ var os = function() {
     isChrome = /(?:Chrome|CriOS)/.test(ua),
     isTablet = /(?:iPad|PlayBook)/.test(ua) || (isAndroid && !/(?:Mobile)/.test(ua)) || (isFireFox && /(?:Tablet)/.test(ua)),
     isPhone = /(?:iPhone)/.test(ua) && !isTablet,
-    isPc = !isPhone && !isAndroid && !isSymbian;
+    isPc = !isPhone && !isAndroid && !isSymbian
   return {
     isTablet: isTablet,
     isPhone: isPhone,
-    isAndroid : isAndroid,
-    isPc : isPc
-  };
-}();
+    isAndroid: isAndroid,
+    isPc: isPc
+  }
+}()
 

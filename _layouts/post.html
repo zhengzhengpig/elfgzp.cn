@@ -91,6 +91,15 @@ if (os.isAndroid || os.isPhone) {
 }
 </script>
 <style type="text/css">
+
+    nav[data-toggle=toc] .nav>li>a:focus,nav[data-toggle=toc] .nav>li>a:hover {
+        padding-left: 19px;
+        color: {{ page.color }};
+        text-decoration: none;
+        background-color: transparent;
+        border-left: 1px solid {{ page.color }};
+    }
+
     nav[data-toggle=toc] .nav-link.active, nav[data-toggle=toc] .nav-link.active:focus, nav[data-toggle=toc] .nav-link.active:hover {
         padding-left: 18px;
         font-weight: 700;
@@ -98,6 +107,7 @@ if (os.isAndroid || os.isPhone) {
         background-color: transparent;
         border-left: 2px solid {{ page.color }};
     }
+
 </style>
 </body>
 </html>

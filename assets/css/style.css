@@ -3,6 +3,10 @@ html, body, ul, li, div, header, nav, main, footer {
     padding: 0;
 }
 
+ul {
+    list-style-type: none;
+}
+
 html {
     background-image: url(/assets/images/bak.svg);
     /*background-size: 100%;*/
@@ -34,6 +38,10 @@ a {
     margin: 0 auto;
 }
 
+.top-center div, .top-center ul {
+    display: inline;
+}
+
 .logo {
     height: 100%;
     width: auto;
@@ -53,7 +61,7 @@ a {
 .top-nav {
     height: 100%;
     width: auto;
-    float: right;
+    float: left;
 }
 
 .top-nav li {
@@ -69,10 +77,16 @@ a {
 .top-nav li a {
     color: #444;
     /*display: block;*/
+
 }
 
 .top-nav li a:hover {
     color: green;
+}
+
+#site_search {
+    height: 100%;
+    float: right;
 }
 
 #top-boot {
@@ -455,6 +469,81 @@ a {
         -webkit-transform: scale3d(1, 1, 1);
         transform: scale3d(1, 1, 1);
     }
+
+}
+
+.tag:nth-child(3n-2):hover {
+    background-color: rgb(154, 133, 255);
+    border: 1px solid rgb(154, 133, 255);
+    color: white;
+    font-weight: bold;
+    -webkit-animation-name: tadatag;
+    animation-name: tadatag;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    /*transition-duration: .2s;*/
+}
+
+.tag:nth-child(3n-1):hover {
+    background-color: rgb(255, 210, 32);
+    border: 1px solid rgb(255, 210, 32);
+    color: white;
+    font-weight: bold;
+    -webkit-animation-name: tadatag;
+    animation-name: tadatag;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    /*transition-duration: .2s;*/
+}
+
+.tag:nth-child(3n):hover {
+    background-color: rgb(98, 170, 255);
+    border: 1px solid rgb(98, 170, 255);
+    color: white;
+    font-weight: bold;
+    -webkit-animation-name: tadatag;
+    animation-name: tadatag;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    /*transition-duration: .2s;*/
+}
+
+.tag-name {
+    display: block;
+    font-size: 28px;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.tag-name a {
+    display: block;
+    font-size: 28px;
+    color: #345678;
+    -webkit-transition-duration: .5s;
+    transition-duration: .5s
+}
+
+.tag-name a:hover {
+    color: #f15b6c;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s
+}
+
+.tag-post {
+    display: block;
+    height: auto;
+    width: auto;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #555;
+    font-weight: 400;
 }
 
 .tag:nth-child(3n-2):hover {
@@ -728,6 +817,64 @@ a {
     margin-top: 11px;
 }
 
+.left-area .btn {
+    left: 35%;
+}
+
+.right-area .btn {
+    right: 35%;
+}
+
+.btn:hover {
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    border: 3px solid white;
+    background-color: white;
+    color: #888;
+}
+
+#left-tab, #right-tab {
+    width: 300px;
+    height: 40px;
+    /*background-color: red;*/
+    position: absolute;
+}
+
+#left-tab {
+    position: absolute;
+    top: 82.3%;
+    left: 70%;
+}
+
+#right-tab {
+    position: absolute;
+    top: 82.3%;
+    right: 70%;
+}
+
+.left-san {
+    display: block;
+    float: left;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 8px solid white;
+    border-bottom: 8px solid transparent;
+    margin-top: 11px;
+}
+
+.right-san {
+    display: block;
+    float: right;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-left: 8px solid white;
+    border-bottom: 8px solid transparent;
+    margin-top: 11px;
+}
+
+>>> >>> > Stashed changes
 .left-main {
     display: block;
     max-width: 290px;
@@ -779,7 +926,7 @@ a {
     right: 0;
     margin: 0 auto;
     font-size: 45px;
-    font-weight: 550;
+    font-weight: 500;
     color: white;
     font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
     /*font-family: 'Kaushan Script', cursive;*/
@@ -844,6 +991,35 @@ a {
     left: 0;
     right: 0;
     margin: 0 auto;
+}
+
+.post-changearea {
+    width: 100%;
+    height: 100px;
+    /*background-color: black;*/
+    position: absolute;
+    bottom: 0;
+    display: none;
+}
+
+.leftchange, .rightchange {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.leftchange {
+    /*border-top-left-radius: 40px;*/
+    border-top-right-radius: 40px;
+}
+
+.rightchange {
+    border-top-left-radius: 40px;
+    /*border-top-right-radius: 40px;*/
 }
 
 .post-changearea {
@@ -993,7 +1169,7 @@ a {
 
 #yourname {
     font-size: 20px;
-    font-weight: 450;
+    font-weight: 400;
     margin-bottom: 5px;
     display: block;
 }
@@ -1068,6 +1244,20 @@ a {
     border-left: 8px solid #f4f4f4;
     border-bottom: 8px solid transparent;
     margin-top: 11px;
+    -webkit-transition-duration: .5s;
+    transition-duration: .5s;
+}
+
+.lefttime-main {
+    display: block;
+    max-width: 330px;
+    height: 100%;
+    border-radius: 7px;
+    background-color: #f4f4f4;
+    float: left;
+    padding: 10px 20px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     -webkit-transition-duration: .5s;
     transition-duration: .5s;
 }
@@ -1177,6 +1367,24 @@ a {
     margin-top: 10px;
 }
 
+.timeANDnamemain {
+    display: block;
+    overflow: hidden;
+    /*line-height: 40px;*/
+    font-size: 16px;
+    /*color: #9A85FF;*/
+    font-weight: bold;
+    color: #555;
+    text-align: left;
+}
+
+.timeline-data {
+    display: block;
+    font-size: 14px;
+    text-align: right;
+    margin-top: 10px;
+}
+
 /*以三的倍数设置颜色*/
 #media div:nth-child(3n-2) a .timeANDname-san {
     border-left: 8px solid #00aff0;
@@ -1240,5 +1448,64 @@ a {
 .toc > span {
     font-size: 18px;
     font-weight: bold;
-    font-family: 'ffad_matroregular';
+    font-family: 'ffad_matroregular', serif;
 }
+
+/* 搜索框样式 */
+#site_search {
+    line-height: 75px;
+}
+
+#site_search > input {
+    box-shadow: none;
+    display: table-cell;
+    min-height: 26px;
+    padding-bottom: 0;
+    outline: none;
+    width: 250px;
+    height: 22px;
+    border-radius: 4px;
+    border: 1px solid #DBDBDB;
+    background: #ffffff none;
+    text-align: center;
+}
+
+#site_search > input::placeholder {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'ffad_matroregular', serif;
+}
+
+#results-container {
+    line-height: normal;
+    z-index: 999;
+    position: absolute;
+    width: 250px;
+    background-color: #ffffff;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #767676;
+    text-decoration: none;
+    text-align: center;
+}
+
+#results-container li {
+    line-height: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    display: block;
+    padding: 4px 20px;
+}
+
+#results-container li a {
+    font-size: 13px;
+    font-weight: 500;
+    color: #767676;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+/* */
