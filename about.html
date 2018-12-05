@@ -31,11 +31,6 @@ description:
           {% endfor%}
         {% endif %}
       </li>
-        {% if site.hacknical %}
-        <li>
-            <iframe src="{{ site.hacknical }}" frameborder="0" scrolling="no" style="width:100%;height:4970px;left:0;top:0;right:0;bottom:0;"></iframe>
-        </li>
-        {% endif %}
       <li class="fadeInUp animated">
       {% if site.tags.size>0 %}
           {% for tag in site.tags %}
@@ -43,7 +38,17 @@ description:
           {% endfor %}
       {% endif %}
       </li>
+        {% if site.hacknical %}
+        <li class="hacknical">
+            <iframe src="{{ site.hacknical }}" frameborder="0" scrolling="no" style="width:100%;height:4970px;left:0;top:0;right:0;bottom:0;"></iframe>
+        </li>
+        {% endif %}
     </ul>
+    <script>
+      if (os.isAndroid || os.isPhone) {
+        $('.hacknical').hide()
+      }
+    </script>
 </main>
 {% include footer.html %}
 
