@@ -166,6 +166,22 @@ python manage.py makemigrations --merge
 {% github_sample /elfgzp/django_experience/blob/6f5dafb69e282051dbd0f65458dc56762f03c437/make_good_use_of_migrations/migrations/0004_fix_book_data.py 3 29 %}
 {% endhighlight %}
 
+### 在函数中模型的类所重写的save方法无效，包括继承的save方法
+在`migrations`中所有重写的`save`方法都不会运行，例如：
+{% github_sample_ref /elfgzp/django_experience/blob/0ab98dbec094bb115d9adf3547bf3eccbd0800af/make_good_use_of_migrations/models.py %}
+{% highlight python %}
+{% github_sample /elfgzp/django_experience/blob/0ab98dbec094bb115d9adf3547bf3eccbd0800af/make_good_use_of_migrations/models.py 11 27 %}
+{% endhighlight %}
+最后初始化生成的数据的`remark`字段的值仍然为空。
+
+### 在函数中模型注册的所有signal无效
+虽然给`Book`模型注册了`signal`，但是在`migrations`中仍然不会起作用
+{% github_sample_ref /elfgzp/django_experience/blob/0ab98dbec094bb115d9adf3547bf3eccbd0800af/make_good_use_of_migrations/models.py %}
+{% highlight python %}
+{% github_sample /elfgzp/django_experience/blob/0ab98dbec094bb115d9adf3547bf3eccbd0800af/make_good_use_of_migrations/models.py 28 34 %}
+{% endhighlight %}
+
+
 ### 不要将数据处理放到模型变更的migrations文件中
 
 在做数据修复或者生成初始化数据时，不要将处理函数放到自动生成的变更或生成字段、模型的`migrations`文件中，例如：
