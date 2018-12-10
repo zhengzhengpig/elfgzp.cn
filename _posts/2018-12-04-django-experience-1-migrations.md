@@ -36,7 +36,8 @@ subtitle: '善用migrations'
 
 {% github_sample_ref /elfgzp/django_experience/blob/42e1f6ca6d68b49d7e87f0d5121aa80cfd692372/make_good_use_of_migrations/models.py %}
 {% highlight python %}
-{% github_sample /elfgzp/django_experience/blob/42e1f6ca6d68b49d7e87f0d5121aa80cfd692372/make_good_use_of_migrations/models.py 5 7 %}
+class Book(models.Model):
+    name = models.CharField(max_length=32)
 {% endhighlight %}
 
 例如：生成三本名称分别为`Hamlet`、`Tempest`、`The Little Prince`的书。
@@ -61,7 +62,31 @@ subtitle: '善用migrations'
 
 {% github_sample_ref /elfgzp/django_experience/blob/6f5dafb69e282051dbd0f65458dc56762f03c437/make_good_use_of_migrations/migrations/0002_init_book_data.py %}
 {% highlight python %}
-{% github_sample /elfgzp/django_experience/blob/6f5dafb69e282051dbd0f65458dc56762f03c437/make_good_use_of_migrations/migrations/0002_init_book_data.py 0 26 %}
+from django.db import migrations
+
+"""
+make_good_use_of_migrations 是App的名字
+"""
+
+
+def init_book_data(apps, schema_editor):
+    Book = apps.get_model('make_good_use_of_migrations', 'Book')
+    init_data = ['Hamlet', 'Tempest', 'The Little Prince']
+    for name in init_data:
+        book = Book(name=name)
+        book.save()
+
+
+class Migration(migrations.Migration):
+    dependencies = [
+        ('make_good_use_of_migrations', '0001_initial'),
+    ]
+
+    # 这里要注意dependencies为上一次migrations的文件名称
+
+    operations = [
+        migrations.RunPython(init_book_data)
+    ]
 {% endhighlight %}
 
 3. 运行`python manage.py migrate`，可以看到数据已经在数据库中生成了。 
@@ -74,7 +99,13 @@ subtitle: '善用migrations'
 
 {% github_sample_ref /elfgzp/django_experience/blob/ede5c73dbb87b6f3f6a93c77d39a2488daaf6acf/make_good_use_of_migrations/models.py %}
 {% highlight python %}
-{% github_sample /elfgzp/django_experience/blob/ede5c73dbb87b6f3f6a93c77d39a2488daaf6acf/make_good_use_of_migrations/models.py 5 13 %}
+class Author(models.Model):
+    name = models.CharField(max_length=32)
+
+
+class Book(models.Model):
+    name = models.CharField(max_length=32)
+    author = models.ForeignKey(to=Author, on_delete=models.CASCADE, null=False)
 {% endhighlight %}
 
 2. 在相应app下的`migrations`文件新建`0004_fix_book_data.py`
@@ -86,7 +117,26 @@ subtitle: '善用migrations'
 
 {% github_sample_ref /elfgzp/django_experience/blob/ede5c73dbb87b6f3f6a93c77d39a2488daaf6acf/make_good_use_of_migrations/migrations/0004_fix_book_data.py %}
 {% highlight python %}
-{% github_sample /elfgzp/django_experience/blob/ede5c73dbb87b6f3f6a93c77d39a2488daaf6acf/make_good_use_of_migrations/migrations/0004_fix_book_data.py 3 24 %}
+from django.db import migrations
+
+
+def fix_book_data(apps, schema_editor):
+    Book = apps.get_model('make_good_use_of_migrations', 'Book')
+    Author = apps.get_model('make_good_use_of_migrations', 'Author')
+    for book in Book.objects.all():
+        author, _ = Author.objects.get_or_create(name='%s author' % book.name)
+        book.author = author
+        book.save()
+
+
+class Migration(migrations.Migration):
+    dependencies = [
+        ('make_good_use_of_migrations', '0003_auto_20181204_0533'),
+    ]
+
+    operations = [
+        migrations.RunPython(fix_book_data)
+    ]
 {% endhighlight %}
 
 
@@ -113,7 +163,9 @@ subtitle: '善用migrations'
 
 {% github_sample_ref /elfgzp/django_experience/blob/62e58772a112ac46251fbb1c40de711d832feb35/make_good_use_of_migrations/models.py %}
 {% highlight python %}
-{% github_sample /elfgzp/django_experience/blob/62e58772a112ac46251fbb1c40de711d832feb35/make_good_use_of_migrations/models.py 5 9 %}
+class Book(models.Model):
+    name = models.CharField(max_length=32)
+    remark = models.CharField(max_length=32, null=True)
 {% endhighlight %}
 
 `migrations`文件目录如下：
@@ -143,7 +195,17 @@ python manage.py makemigrations --merge
 
 {% github_sample_ref /elfgzp/django_experience/blob/6f5dafb69e282051dbd0f65458dc56762f03c437/make_good_use_of_migrations/migrations/0006_merge_20181204_0622.py %}
 {% highlight python %}
-{% github_sample /elfgzp/django_experience/blob/6f5dafb69e282051dbd0f65458dc56762f03c437/make_good_use_of_migrations/migrations/0006_merge_20181204_0622.py 2 15 %}
+from django.db import migrations
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('make_good_use_of_migrations', '0005_auto_20181204_0610'),
+        ('make_good_use_of_migrations', '0003_book_remark'),
+    ]
+
+    operations = [
+    ]
 {% endhighlight %}
 
 这时候在执行`python manage.py migrate`就可以了。
@@ -156,21 +218,70 @@ python manage.py makemigrations --merge
 
 {% github_sample_ref /elfgzp/django_experience/blob/6f5dafb69e282051dbd0f65458dc56762f03c437/make_good_use_of_migrations/models.py %}
 {% highlight python %}
-{% github_sample /elfgzp/django_experience/blob/6f5dafb69e282051dbd0f65458dc56762f03c437/make_good_use_of_migrations/models.py 9 21 %}
+class Book(models.Model):
+    name = models.CharField(max_length=32)
+    author = models.ForeignKey(to=Author, on_delete=models.CASCADE, null=False)
+    remark = models.CharField(max_length=32, null=True)
+
+    def print_name(self):
+        print(self.name)
+
+    @classmethod
+    def print_class_name(cls):
+        print(cls.__name__)
 {% endhighlight %}
 
 在`migrations`中是无法调用的，笔者也没有仔细研究，推测是`Book`类初始化时只把字段初始化了。
 
 {% github_sample_ref /elfgzp/django_experience/blob/6f5dafb69e282051dbd0f65458dc56762f03c437/make_good_use_of_migrations/migrations/0004_fix_book_data.py %}
 {% highlight python %}
-{% github_sample /elfgzp/django_experience/blob/6f5dafb69e282051dbd0f65458dc56762f03c437/make_good_use_of_migrations/migrations/0004_fix_book_data.py 3 29 %}
+
+from django.db import migrations
+
+
+def fix_book_data(apps, schema_editor):
+    Book = apps.get_model('make_good_use_of_migrations', 'Book')
+    Author = apps.get_model('make_good_use_of_migrations', 'Author')
+    for book in Book.objects.all():
+        author, _ = Author.objects.get_or_create(name='%s author' % book.name)
+        book.author = author
+        """
+        book.print_name()
+        book.print_class_name()
+        这样调用会报错
+        """
+        book.save()
+
+
+class Migration(migrations.Migration):
+    dependencies = [
+        ('make_good_use_of_migrations', '0003_auto_20181204_0533'),
+    ]
+
+    operations = [
+        migrations.RunPython(fix_book_data)
+    ]
 {% endhighlight %}
 
 ### 在函数中模型的类所重写的save方法无效，包括继承的save方法
 在`migrations`中所有重写的`save`方法都不会运行，例如：
 {% github_sample_ref /elfgzp/django_experience/blob/0ab98dbec094bb115d9adf3547bf3eccbd0800af/make_good_use_of_migrations/models.py %}
 {% highlight python %}
-{% github_sample /elfgzp/django_experience/blob/0ab98dbec094bb115d9adf3547bf3eccbd0800af/make_good_use_of_migrations/models.py 11 27 %}
+class Book(models.Model):
+    name = models.CharField(max_length=32)
+    author = models.ForeignKey(to=Author, on_delete=models.CASCADE, null=False)
+    remark = models.CharField(max_length=32, null=True)
+
+    def print_name(self):
+        print(self.name)
+
+    @classmethod
+    def print_class_name(cls):
+        print(cls.__name__)
+
+    def save(self, *args, **kwargs):
+        if not self.remark:
+            self.remark = 'This is a book.'
 {% endhighlight %}
 最后初始化生成的数据的`remark`字段的值仍然为空。
 
@@ -178,7 +289,11 @@ python manage.py makemigrations --merge
 虽然给`Book`模型注册了`signal`，但是在`migrations`中仍然不会起作用
 {% github_sample_ref /elfgzp/django_experience/blob/0ab98dbec094bb115d9adf3547bf3eccbd0800af/make_good_use_of_migrations/models.py %}
 {% highlight python %}
-{% github_sample /elfgzp/django_experience/blob/0ab98dbec094bb115d9adf3547bf3eccbd0800af/make_good_use_of_migrations/models.py 28 34 %}
+@receiver(pre_save, sender=Book)
+def generate_book_remark(sender, instance, *args, **kwargs):
+    print(instance)
+    if not instance.remark:
+        instance.remark = 'This is a book.'
 {% endhighlight %}
 
 
@@ -188,7 +303,22 @@ python manage.py makemigrations --merge
 
 {% github_sample_ref /elfgzp/django_experience/blob/6f5dafb69e282051dbd0f65458dc56762f03c437/make_good_use_of_migrations/migrations/0005_auto_20181204_0610.py %}
 {% highlight python %}
-{% github_sample /elfgzp/django_experience/blob/6f5dafb69e282051dbd0f65458dc56762f03c437/make_good_use_of_migrations/migrations/0005_auto_20181204_0610.py 6 23 %}
+class Migration(migrations.Migration):
+    dependencies = [
+        ('make_good_use_of_migrations', '0004_fix_book_data'),
+    ]
+
+    operations = [
+        migrations.AlterField(
+            model_name='book',
+            name='author',
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                    to='make_good_use_of_migrations.Author'),
+        ),
+        """
+        migrations.RunPython(xxx) 不要把数据处理放到模型变更中
+        """
+    ]
 {% endhighlight %}
 
 不要放在一起的主要原因是，当`RunPython`中函数的处理逻辑一旦出现异常无法向下执行，   
