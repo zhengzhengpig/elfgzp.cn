@@ -13,9 +13,7 @@ script:
 - bundle exec jekyll build
 after_success:
 - "./push.sh"
-- ssh gzp@cloud.elfgzp.cn "cd ~/workspace/elfgzp.cn && source ~/.zshrc  &&
-  git pull origin master && docker-compose build && docker-compose down && docker-compose
-  up -d"
+- "./deploy.sh"
 branches:
   only:
   - master
