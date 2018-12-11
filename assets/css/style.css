@@ -738,7 +738,7 @@ a {
     float: right;
 }
 
-.btn {
+.btn{
     cursor: pointer;
     display: block;
     -webkit-box-sizing: border-box;
@@ -749,12 +749,12 @@ a {
     position: absolute;
     top: 80%;
     border-radius: 100px;
-    border: 3px solid rgba(0, 0, 0, 0.3);
+    border: 3px solid rgba(0,0,0,0.3);
     text-align: center;
     line-height: 53px;
     font-size: 35px;
     font-weight: 600;
-    color: rgba(0, 0, 0, 0.2);
+    color: rgba(0,0,0,0.2);
     font-family: Ubuntu;
     -webkit-transition-duration: .3s;
     transition-duration: .3s;
@@ -779,7 +779,6 @@ a {
 #left-tab, #right-tab {
     width: 300px;
     height: 40px;
-    /*background-color: red;*/
     position: absolute;
 }
 
@@ -874,7 +873,6 @@ a {
     margin-top: 11px;
 }
 
->>> >>> > Stashed changes
 .left-main {
     display: block;
     max-width: 290px;
