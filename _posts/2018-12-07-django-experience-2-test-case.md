@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Django使用心得（二） 使用TestCase测试接口"
-date:   2018-12-04 10:30:00 +0800
+date:   2018-12-07 10:30:00 +0800
 tags: 'Django'
 color: rgb(110, 120, 50)
 cover: '/assets/images/2018-12-07-django-experience-2-test-case/django-test-case.png'
