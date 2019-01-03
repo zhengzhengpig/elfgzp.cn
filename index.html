@@ -1,0 +1,383 @@
+<!-- 首页及其他页面的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="一个兴趣使然的程序员" />
+<meta name="keywords" content="技术, Python, Vue, 后端开发，前端开发，日常" />
+<link rel="stylesheet" href="/assets/css/bootstrap-toc.min.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/media.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/pygments/pygments_default.css">
+<link rel="stylesheet" href="/assets/css/github-markdown.css">
+
+<!-- SNS-icon -->
+<script src="//at.alicdn.com/t/font_856428_y9z6nq7zf5.js"></script>
+<!-- share.css -->
+<link rel="stylesheet" href="/assets/css/share.min.css">
+<!-- font -->
+<link rel="stylesheet" href="/assets/css/font.css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Ubuntu|Roboto+Mono|Source+Sans+Pro" rel="stylesheet"> -->
+
+<!-- Favicon -->
+<link href="/assets/images/profile.jpeg" rel="shortcut icon" />
+<link href="/assets/images/profile.jpeg" rel="apple-touch-icon-precomposed" />
+<!-- Android Lolipop Theme Color -->
+<!-- <meta name="theme-color" content="#1464FB"> -->
+<title>Gzp的博客</title>
+<!-- 百度统计 -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?db89c93fc4343f3fa42c3534a1aaad01";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 谷歌分析 -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="/assets/js/bootstrap-toc.min.js"></script>
+<script src="/assets/js/main.js"></script>
+
+
+</head>
+<body>
+<!-- 页面主体 -->
+<header id="index-header">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/" title="my awesome webtitle"></a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/">首页</a></li>
+              
+                <li><a href="/tags.html">标签</a></li>
+              
+                <li><a href="/timeline.html">时间线</a></li>
+              
+                <li><a href="/about.html">关于博主</a></li>
+              
+                <li><a href="/friendLink.html">友情链接</a></li>
+              
+          </ul>
+      </nav>
+
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/images/boot.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/images/boot.png" alt=""></a>
+      </div>
+      <div id="site_search">
+    <input type="text" id="search-input" placeholder="Search to jump ...">
+    <ul id="results-container"></ul>
+</div>
+<script src="/assets/js/simple-jekyll-search.min.js"></script>
+<script>
+if (os.isAndroid || os.isPhone) {
+  $('#site_search').hide()
+} else {
+  var sjs = SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json'
+  })}
+</script>
+  </div>
+
+</header>
+
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/timeline.html"><li>时间线</li></a>
+        
+          <a href="/about.html"><li>关于博主</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<main>
+    <div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">Gzp 's blog.</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s">Gzp的博客.</span>
+    <span class="wow fadeInUp" data-wow-delay="0.6s">一个兴趣使然的程序员</span>
+</div>
+
+    <ul class="post-list">
+      
+  <a href="/2018/12/07/django-experience-2-test-case.html">
+      <li class="fadeInUp animated">
+          
+          <img class="post-img" src="/assets/images/2018-12-07-django-experience-2-test-case/django-test-case.png">
+          
+          <section class="post-preview">
+              <h2 class="post-title">Django使用心得（二） 使用TestCase测试接口</h2>
+              
+              <h3 class="post-subtitle">使用TestCase测试接口，养成良好的编码测试习惯</h3>
+              
+              
+          </section>
+          <footer class="post-tags">
+                
+                    
+                    <a href=tags.html#Django class="post-tag">Django</a>
+                    
+                
+                <time class="post-date" datetime="18-12-07">07 Dec 2018</time>
+          </footer>
+      </li>
+  </a>
+
+  <a href="/2018/12/04/django-experience-1-migrations.html">
+      <li class="fadeInUp animated">
+          
+          <img class="post-img" src="/assets/images/2018-12-04-django-experience-1-migrations/django-migrations.png">
+          
+          <section class="post-preview">
+              <h2 class="post-title">Django使用心得（一） 善用migrations</h2>
+              
+              <h3 class="post-subtitle">善用migrations</h3>
+              
+              
+          </section>
+          <footer class="post-tags">
+                
+                    
+                    <a href=tags.html#Django class="post-tag">Django</a>
+                    
+                
+                <time class="post-date" datetime="18-12-04">04 Dec 2018</time>
+          </footer>
+      </li>
+  </a>
+
+  <a href="/2018/11/01/greedy-algorithm.html">
+      <li class="fadeInUp animated">
+          
+          <img class="post-img" src="/assets/images/2018-11-01-greedy-algorithm/贪心算法.png">
+          
+          <section class="post-preview">
+              <h2 class="post-title">贪心算法的转化</h2>
+              
+              <h3 class="post-subtitle">算法练习题</h3>
+              
+              
+          </section>
+          <footer class="post-tags">
+                
+                    
+                    <a href=tags.html#算法 class="post-tag">算法</a>
+                    
+                
+                <time class="post-date" datetime="18-11-01">01 Nov 2018</time>
+          </footer>
+      </li>
+  </a>
+
+  <a href="/2018/10/31/ssr-serverspeeder.html">
+      <li class="fadeInUp animated">
+          
+          <img class="post-img" src="/assets/images/2018-10-31-ssr-serverspeeder/shadowsocksR-logo.png">
+          
+          <section class="post-preview">
+              <h2 class="post-title">SSR 速锐 实现科学上网，提高外网访问速度</h2>
+              
+              <h3 class="post-subtitle">程序员访问Google解决方案</h3>
+              
+              
+          </section>
+          <footer class="post-tags">
+                
+                    
+                    <a href=tags.html#SSR class="post-tag">SSR</a>
+                    
+                    <a href=tags.html#速锐 class="post-tag">速锐</a>
+                    
+                    <a href=tags.html#vultr class="post-tag">vultr</a>
+                    
+                    <a href=tags.html#科学上网 class="post-tag">科学上网</a>
+                    
+                    <a href=tags.html#Google class="post-tag">Google</a>
+                    
+                    <a href=tags.html#技术 class="post-tag">技术</a>
+                    
+                
+                <time class="post-date" datetime="18-10-31">31 Oct 2018</time>
+          </footer>
+      </li>
+  </a>
+
+  <a href="/2018/10/03/emqttd-django.html">
+      <li class="fadeInUp animated">
+          
+          <img class="post-img" src="/assets/images/2018-10-03-emqttd-django/emqlogo.jpg">
+          
+          <section class="post-preview">
+              <h2 class="post-title">MQTT消息服务器EMQ部署，并改造Mysql鉴权，通过Django进行用户管理</h2>
+              
+              <h3 class="post-subtitle">百万级分布式开源物联网MQTT消息服务器</h3>
+              
+              
+          </section>
+          <footer class="post-tags">
+                
+                    
+                    <a href=tags.html#MQTT class="post-tag">MQTT</a>
+                    
+                    <a href=tags.html#EMQ class="post-tag">EMQ</a>
+                    
+                    <a href=tags.html#MySQL class="post-tag">MySQL</a>
+                    
+                    <a href=tags.html#Django class="post-tag">Django</a>
+                    
+                    <a href=tags.html#IOT class="post-tag">IOT</a>
+                    
+                    <a href=tags.html#技术 class="post-tag">技术</a>
+                    
+                    <a href=tags.html#Linux class="post-tag">Linux</a>
+                    
+                
+                <time class="post-date" datetime="18-10-03">03 Oct 2018</time>
+          </footer>
+      </li>
+  </a>
+
+  <a href="/2018/10/02/travis-jekyll-docker.html">
+      <li class="fadeInUp animated">
+          
+          <img class="post-img" src="/assets/images/2018-10-02-travis-jekyll-docker/WX20181002-174437@2x-squashed.png">
+          
+          <section class="post-preview">
+              <h2 class="post-title">Travis CI  Jekyll  Docker 自动化部署博客到云服务器</h2>
+              
+              <h3 class="post-subtitle">解决Github pages百度爬虫被禁用</h3>
+              
+              
+          </section>
+          <footer class="post-tags">
+                
+                    
+                    <a href=tags.html#Travis class="post-tag">Travis</a>
+                    
+                    <a href=tags.html#Jekyll class="post-tag">Jekyll</a>
+                    
+                    <a href=tags.html#Docker class="post-tag">Docker</a>
+                    
+                    <a href=tags.html#技术 class="post-tag">技术</a>
+                    
+                    <a href=tags.html#Linux class="post-tag">Linux</a>
+                    
+                
+                <time class="post-date" datetime="18-10-02">02 Oct 2018</time>
+          </footer>
+      </li>
+  </a>
+
+  <a href="/2018/09/30/restart-my-blog.html">
+      <li class="fadeInUp animated">
+          
+          <img class="post-img" src="/assets/images/2018-10-01-restart-my-blog/IMG_20181002_133855-squashed.jpg">
+          
+          <section class="post-preview">
+              <h2 class="post-title">重新开始，我的博客</h2>
+              
+              <h3 class="post-subtitle">重新开始写博客的原因、毕业一年半的感悟</h3>
+              
+              
+          </section>
+          <footer class="post-tags">
+                
+                    
+                    <a href=tags.html#感悟记录 class="post-tag">感悟记录</a>
+                    
+                    <a href=tags.html#日常 class="post-tag">日常</a>
+                    
+                
+                <time class="post-date" datetime="18-09-30">30 Sep 2018</time>
+          </footer>
+      </li>
+  </a>
+
+
+    </ul>
+</main>
+<nav class="pagination">
+  <div class="page-links">
+    
+        <a href="/" class="page-link" title="Index Page">1</a>
+    
+    
+    
+    
+      
+        <a href="/" class="page-link" title="No Next">\</a>
+      
+    
+  </div>
+
+</nav>
+
+<footer id="bottom">
+  <br>
+  <span>Gzp的博客 ©
+  
+  
+    2018
+    -
+  
+  2019
+  <a href="http://www.miitbeian.gov.cn">粤ICP备16038504号-1</a>
+  <br>
+  Powered by <a href="https://www.jekyll.com.cn/">Jekyll</a> | <a href="https://github.com/xukimseven/HardCandy-Jekyll">HardCandy-Jekyll</a></span>
+</footer>
+
+
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 5,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+
+</body>
+</html>
